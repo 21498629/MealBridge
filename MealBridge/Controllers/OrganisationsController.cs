@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MealBridge.Models;
+using MealBridge.ViewModels;
 
 namespace MealBridge.Controllers
 {
@@ -13,33 +14,33 @@ namespace MealBridge.Controllers
     [ApiController]
     public class OrganisationsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _appDbcontext;
 
-        public OrganisationsController(AppDbContext context)
+        public OrganisationsController(AppDbContext appDbcontext)
         {
-            _context = context;
+            _appDbcontext = appDbcontext;
         }
 
         // GET: api/Organisations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Organisation>>> GetOrganisations()
         {
-          if (_context.Organisations == null)
+          if (_appDbcontext.Organisations == null)
           {
               return NotFound();
           }
-            return await _context.Organisations.ToListAsync();
+            return await _appDbcontext.Organisations.ToListAsync();
         }
 
         // GET: api/Organisations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Organisation>> GetOrganisation(int id)
         {
-          if (_context.Organisations == null)
+          if (_appDbcontext.Organisations == null)
           {
               return NotFound();
           }
-            var organisation = await _context.Organisations.FindAsync(id);
+            var organisation = await _appDbcontext.Organisations.FindAsync(id);
 
             if (organisation == null)
             {
@@ -59,11 +60,11 @@ namespace MealBridge.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(organisation).State = EntityState.Modified;
+            _appDbcontext.Entry(organisation).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _appDbcontext.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -85,12 +86,12 @@ namespace MealBridge.Controllers
         [HttpPost]
         public async Task<ActionResult<Organisation>> PostOrganisation(Organisation organisation)
         {
-          if (_context.Organisations == null)
+          if (_appDbcontext.Organisations == null)
           {
               return Problem("Entity set 'AppDbContext.Organisations'  is null.");
           }
-            _context.Organisations.Add(organisation);
-            await _context.SaveChangesAsync();
+            _appDbcontext.Organisations.Add(organisation);
+            await _appDbcontext.SaveChangesAsync();
 
             return CreatedAtAction("GetOrganisation", new { id = organisation.Id }, organisation);
         }
@@ -99,25 +100,25 @@ namespace MealBridge.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrganisation(int id)
         {
-            if (_context.Organisations == null)
+            if (_appDbcontext.Organisations == null)
             {
                 return NotFound();
             }
-            var organisation = await _context.Organisations.FindAsync(id);
+            var organisation = await _appDbcontext.Organisations.FindAsync(id);
             if (organisation == null)
             {
                 return NotFound();
             }
 
-            _context.Organisations.Remove(organisation);
-            await _context.SaveChangesAsync();
+            _appDbcontext.Organisations.Remove(organisation);
+            await _appDbcontext.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool OrganisationExists(int id)
         {
-            return (_context.Organisations?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_appDbcontext.Organisations?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
