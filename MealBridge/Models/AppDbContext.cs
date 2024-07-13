@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using MealBridge.Models;
-using MealBridge.Models.AppUser;
 
 namespace MealBridge.Models
 {
