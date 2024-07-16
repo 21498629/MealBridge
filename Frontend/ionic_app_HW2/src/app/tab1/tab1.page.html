@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-title>
+  Home
+  </ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-title size="large">Home</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-card>
+  <img alt="header image" src="assets/images/MealBridge-NoBG.png" />
+  <ion-card-header>
+  <ion-card-title>Food Nearby</ion-card-title>
+  <ion-card-subtitle>Food For People</ion-card-subtitle>
+  </ion-card-header>
+  <ion-list>
+  <ion-item *ngFor="let Restaurant of Restaurants" (click)="ADDCart(Restaurant)">
+  <ion-card>
+  <ion-card-content>
+  <img src="{{Restaurant.RImage}}">
+  <ion-card-header>
+  <ion-card-title>
+  {{Restaurant.RName}}
+  </ion-card-title>
+  <ion-card-subtitle>
+  {{Restaurant.RType}}
+  </ion-card-subtitle>
+  </ion-card-header>
+  <h5>{{Restaurant.RRating}}
+  <ion-icon name="star"></ion-icon>
+  {{Restaurant.RTime}} min.
+  R{{Restaurant.RPrice}}
+  </h5>
+  <h4>
+  {{Restaurant.RDistance}} kms away
+  </h4>
+  <ion-button class="info" >ORDER</ion-button> 
+</ion-card-content>
+  </ion-card>
+  </ion-item>
+  </ion-list>
+  </ion-card>
+  </ion-content>
+ 
+ 
