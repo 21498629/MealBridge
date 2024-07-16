@@ -1,0 +1,7 @@
+{
+  "name": "ionic_app_HW2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
