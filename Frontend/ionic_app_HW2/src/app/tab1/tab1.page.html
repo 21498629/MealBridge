@@ -1,37 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+  <ion-title>
+  Home
+  </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
   </ion-header>
   
+  <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-title size="large">Home</ion-title>
+  </ion-toolbar>
+  </ion-header>
   <ion-card>
-    <img alt="header image" src="assets/images/MealBridge-NoBG.png" />
-    <ion-card-header>
-      <ion-card-title>Food Nearby</ion-card-title>
-      <ion-card-subtitle>Food For People</ion-card-subtitle>
-    </ion-card-header>
-    <ion-list>
-      <ion-item *ngFor="let Restaurant of Restaurants" (click)="ADDCart(Restaurant)">
-        <ion-card>
-          <ion-card-content>
-            <img src="{{Restaurant.RImage}}" class="restaurant-image">
-            <ion-card-header>
-              <ion-card-title>{{Restaurant.RName}}</ion-card-title>
-              <ion-card-subtitle>{{Restaurant.RArea}}</ion-card-subtitle>
-            </ion-card-header>
-            <h4>{{Restaurant.RDistance}} kms away</h4>
-            <h4>{{Restaurant.RDetails}}</h4>
-            <ion-button class="info">BOOK SPOT</ion-button> 
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
-    </ion-list>
+  <img alt="header image" src="assets/images/MealBridge-NoBG.png" />
+  <ion-card-header>
+  <ion-card-title>Food Nearby</ion-card-title>
+  <ion-card-subtitle>Food For People</ion-card-subtitle>
+  </ion-card-header>
+  <ion-list>
+  <ion-item *ngFor="let Restaurant of Restaurants" (click)="ADDCart(Restaurant)">
+  <ion-card>
+  <ion-card-content>
+  <img src="{{Restaurant.RImage}}">
+  <ion-card-header>
+  <ion-card-title>
+  {{Restaurant.RName}}
+  </ion-card-title>
+  <ion-card-subtitle>
+  {{Restaurant.RArea}}
+  </ion-card-subtitle>
+  </ion-card-header>
+  <h4>
+  {{Restaurant.RDistance}} kms away
+  </h4>
+  <h4>
+    {{Restaurant.RDetails}}
+    </h4>
+  <ion-button class="info" >BOOK SPOT</ion-button> 
+</ion-card-content>
   </ion-card>
-</ion-content>
+  </ion-item>
+  </ion-list>
+  </ion-card>
+  </ion-content>
+ 
+ 
