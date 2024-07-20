@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>SPOTS BOOKED</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">BOOKED SPOTS</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <img alt="header image" src="assets/images/MealBridge-NoBG.png" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon aria-hidden="true" name="list-outline" color="medium" size="large"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-input placeholder="Any Instructions? We will try our best"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+<!-- 
+  <ion-list>
+    <ion-list-header>
+      <ion-label color="primary">Bill Details</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-button slot="end" (click)="CartDELETE">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-content class="ion-padding">
+  </ion-content>
+  <ion-list expand="full">
+      <ion-icon name="home-outline" size="large"></ion-icon>
+      <ion-card-title style="margin-left: 10%;" >Delivery to Office</ion-card-title>
+      <ion-card-subtitle style="margin-left:10%;">University of Pretoria,Informatorium</ion-card-subtitle>
+      <ion-button  class=change-button style="margin-left: 80%;"  (click)="AddressEDIT()">Change</ion-button>
+    <ion-toolbar>
+      <ion-item>
+        <ion-label slot="end" style="margin-right: 70%;">R{{ CartTotal }}</ion-label>
+      </ion-item>
+      <ion-buttons slot="end">
+        <ion-button class="blue-button" (click)="PaymentMADE()">Make Payment</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-list>
+</ion-content> -->
+  
+
+
+
+
