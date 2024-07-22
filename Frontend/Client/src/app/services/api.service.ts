@@ -17,28 +17,5 @@ export class ApiService {
     }),
   };
 
-  // Add new methods for products
-  getProducts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/Product/ProductListing`).pipe(map((result) => result));
-  }
-
-  GetProduct(productId: Number)
-{
-  return this.http.get(`${this.baseUrl}/Product/GetProduct` + "/" + productId).pipe(map(result => result))
-}
- // Add new methods for orders
-  addOrder(formData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/Order/AddOrder`, formData);
-  }
-
-
-  GetOrderInfor(email: string): Observable<any> {
-    const url = `${this.baseUrl}/Order/GetOrderInfor/${email}`; 
-    return this.http.get<any>(url);
-  }
-
-   // Add new methods for  client
-  getClients(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/Clients`).pipe(map((result) => result));
-  }
+  
 }
